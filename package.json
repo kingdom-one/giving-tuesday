@@ -1,7 +1,7 @@
 {
-	"name": "grow-together-conference",
-	"version": "3.0.2",
-	"description": "A landing page for the Grow Together 2024 conference",
+	"name": "giving-tuesday",
+	"version": "1.0.0",
+	"description": "A landing page for K1's 2024 Giving Tuesday campaign.",
 	"prettier": "@wordpress/prettier-config",
 	"browserslist": "> 0.5%, last 2 versions, not dead",
 	"scripts": {
