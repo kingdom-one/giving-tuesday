@@ -21,6 +21,8 @@ jobs:
               uses: withastro/action@v2
               with:
                   package-manager: bun@latest
+              env:
+                GIVEBUTTER_API_KEY: ${{ secrets.GIVEBUTTER_API_KEY }}
 
     deploy:
         needs: build
