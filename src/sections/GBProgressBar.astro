@@ -1,0 +1,23 @@
+---
+import GBCampaignTracker from '../components/GBCampaignTracker.astro';
+---
+
+<style lang='scss'>
+	#progress-bar-one {
+		--top-offset: 90px;
+		margin-top: calc(var(--top-offset) * -1);
+		padding-top: calc(var(--top-offset) + 30px);
+	}
+</style>
+<aside
+	id='progress-bar-one'
+	class='bg-yellow pb-5'
+>
+	<div class='container'>
+		<div class='row'>
+			<div class='col'>
+				<GBCampaignTracker />
+			</div>
+		</div>
+	</div>
+</aside>

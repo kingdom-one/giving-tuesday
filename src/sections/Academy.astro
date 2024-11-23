@@ -10,10 +10,9 @@ import bgImage from '../assets/jpg/bg-image__academy.jpg';
 import GivingTuesdayBadge from '../components/GivingTuesdayBadge.astro';
 ---
 
-<style>
-	.bg-overlay {
-		position: absolute;
-		inset: 0;
+<style lang='scss'>
+	@use '../styles/abstracts/mixins' as m;
+	.bg-gradient-overlay {
 		background-image: linear-gradient(to left, black 60%, transparent);
 	}
 </style>
@@ -25,12 +24,16 @@ import GivingTuesdayBadge from '../components/GivingTuesdayBadge.astro';
 		src={bgImage}
 		alt=''
 		aria-hidden='true'
-		loading='eager'
-		class='position-absolute top-0 object-fit-cover w-100 h-100'
+		loading='lazy'
+		class='d-none d-lg-block position-absolute top-0 object-fit-cover w-100 h-100'
 	/>
-	<div class='bg-overlay'></div>
+	<div class='d-lg-none bg-academy position-absolute top-0 w-100 h-100'></div>
+	<div
+		class='d-none d-lg-block bg-gradient-overlay position-absolute top-0 w-100 h-100'
+	>
+	</div>
 	<div class='container position-relative z-1'>
-		<div class='row justify-content-end'>
+		<div class='row justify-content-end gx-0'>
 			<GivingTuesdayBadge
 				badgeType='dark'
 				text='Initiative Two'
