@@ -1,6 +1,6 @@
 {
 	"name": "giving-tuesday",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "A landing page for K1's 2024 Giving Tuesday campaign.",
 	"prettier": "@wordpress/prettier-config",
 	"browserslist": "> 0.5%, last 2 versions, not dead",
@@ -13,6 +13,7 @@
 	},
 	"dependencies": {
 		"@astrojs/react": "^3.6.2",
+		"@justinribeiro/lite-youtube": "^1.5.0",
 		"@types/react": "^18.3.12",
 		"@types/react-dom": "^18.3.1",
 		"aos": "^2.3.4",

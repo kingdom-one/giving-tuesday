@@ -1,0 +1,60 @@
+---
+import BGCircle from './ui/BGCircle.astro';
+---
+
+<style lang='scss'>
+	@use '../styles/abstracts/mixins' as m;
+
+	.bg-circle {
+		aspect-ratio: 1;
+		z-index: -1;
+		max-width: 400px;
+
+		@include m.media-breakpoint-up(lg) {
+			max-width: 500px;
+		}
+
+		&--yellow {
+			left: -12rem;
+			top: -14rem;
+
+			@include m.media-breakpoint-up(lg) {
+				left: -15rem;
+				top: 24rem;
+			}
+		}
+
+		&--green {
+			right: -10rem;
+			bottom: 15rem;
+
+			@include m.media-breakpoint-up(lg) {
+				max-width: 600px;
+				right: -18rem;
+				bottom: 75%;
+			}
+		}
+
+		&--dark {
+			max-width: 200px;
+			bottom: -8rem;
+			left: -6rem;
+
+			@include m.media-breakpoint-up(lg) {
+				max-width: 600px;
+				left: unset;
+				right: -10rem;
+				bottom: -15rem;
+			}
+		}
+	}
+</style>
+{
+	['yellow', 'green', 'dark'].map((color: 'yellow' | 'green' | 'dark') => (
+		<figure
+			class={`bg-circle bg-circle--${color} position-absolute opacity-50 mb-0`}
+		>
+			<BGCircle color={color} />
+		</figure>
+	))
+}

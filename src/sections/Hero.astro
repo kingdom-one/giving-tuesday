@@ -1,9 +1,16 @@
 ---
+export interface Props {
+	videoId?: string;
+}
+// Components
 import { Image } from 'astro:assets';
-
 import GivingTuesday from '../components/svg/giving-tuesday.astro';
 
+// Assets
 import bgImage from '../assets/jpg/bg-image__hero.jpg';
+import YouTubeVideo from '../components/YouTubeVideo.astro';
+
+const { videoId } = Astro.props;
 ---
 
 <style lang='scss'>
@@ -34,8 +41,22 @@ import bgImage from '../assets/jpg/bg-image__hero.jpg';
 				<GivingTuesday textColor='white' />
 			</div>
 		</div>
-		<div class='row'>
-			<div class='col'>
+		<div class='row flex-row-reverse row-gap-3'>
+			{
+				videoId && (
+					<div class='col'>
+						<YouTubeVideo videoId={videoId} />
+					</div>
+				)
+			}
+			<div
+				class:list={[
+					{
+						'col': !videoId,
+						'col-lg-6': videoId,
+					},
+				]}
+			>
 				<p class='text-light fs-5 mb-5'>
 					Kingdom One helps ensure the American Church has the
 					community, tools, and knowledge to stay healthy so that
