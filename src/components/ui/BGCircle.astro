@@ -8,9 +8,10 @@ import white from '../../assets/png/circles/bg-circle--white.png';
 
 export interface Props {
 	color: 'yellow' | 'dark' | 'green' | 'white';
+	class?: string | string[];
 }
 
-const { color } = Astro.props;
+const { color, class: className } = Astro.props;
 
 const srcMap = {
 	yellow,
@@ -23,12 +24,15 @@ const srcMap = {
 <Image
 	src={srcMap[color]}
 	alt=''
-	class:list={['w-100', 'h-100', 'object-fit-contain']}
+	loading='eager'
+	class:list={['w-100', 'h-100', 'object-fit-contain', className]}
 	aria-hidden='true'
 	data-aos='zoom-in'
 />
 
 <script>
 	import AOS from 'aos';
-	AOS.init();
+	AOS.init({
+		once: true,
+	});
 </script>

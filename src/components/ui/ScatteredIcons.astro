@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets';
+import mugGrey from '../../assets/svg/icons/mug--grey.svg';
+import phoneGrey from '../../assets/svg/icons/phone--grey.svg';
+import chartGrey from '../../assets/svg/icons/chart--grey.svg';
+import paperGrey from '../../assets/svg/icons/paper--grey.svg';
+import shieldGrey from '../../assets/svg/icons/shield--grey.svg';
+
+const icons = [
+	{ name: 'mug', src: mugGrey },
+	{ name: 'phone', src: phoneGrey },
+	{ name: 'chart', src: chartGrey },
+	{ name: 'paper', src: paperGrey },
+	{ name: 'shield', src: shieldGrey },
+];
+---
+
+<style lang='scss'>
+	@use '../../styles/abstracts/mixins' as m;
+	%icons {
+		--size: 3.75rem;
+		height: var(--size);
+		width: var(--size);
+
+		@include m.media-breakpoint-up(md) {
+			--size: 5rem;
+		}
+	}
+
+	.grow-together {
+		&__icons {
+			&--mug {
+				@extend %icons;
+				bottom: 56rem;
+				right: 2rem;
+
+				@include m.media-breakpoint-up(lg) {
+					bottom: 18rem;
+					right: 20rem;
+				}
+			}
+
+			&--phone {
+				@extend %icons;
+				bottom: 52rem;
+
+				@include m.media-breakpoint-up(lg) {
+					right: 12rem;
+					bottom: 20rem;
+				}
+			}
+
+			&--chart {
+				@extend %icons;
+				bottom: 60rem;
+				right: 6rem;
+
+				@include m.media-breakpoint-up(lg) {
+					right: 15rem;
+					bottom: 28rem;
+				}
+			}
+
+			&--paper {
+				@extend %icons;
+				bottom: 83%;
+				right: -1rem;
+
+				@include m.media-breakpoint-up(lg) {
+					right: 4rem;
+					bottom: 30rem;
+				}
+			}
+
+			&--shield {
+				@extend %icons;
+				bottom: 25rem;
+				left: -1.5rem;
+
+				@include m.media-breakpoint-up(lg) {
+					left: unset;
+					right: 4rem;
+					bottom: 22rem;
+				}
+			}
+		}
+	}
+</style>
+{
+	icons.map((icon) => (
+		<Image
+			data-aos='zoom-in'
+			src={icon.src}
+			alt=''
+			aria-hidden='true'
+			class={`grow-together__icons--${icon.name} position-absolute`}
+		/>
+	))
+}

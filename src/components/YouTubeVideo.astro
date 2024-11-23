@@ -1,0 +1,27 @@
+---
+export interface Props {
+	videoId: string;
+	quality?:
+		| 'default'
+		| 'mqdefault'
+		| 'hqdefault'
+		| 'sddefault'
+		| 'maxresdefault';
+}
+const { videoId, quality = 'hqdefault' } = Astro.props;
+---
+
+<style>
+	lite-youtube {
+		margin: 0 auto;
+		max-width: unset;
+	}
+</style>
+<lite-youtube
+	videoid={videoId}
+	posterquality={quality}
+	params='enablejsapi=1'
+></lite-youtube>
+<script>
+	import '@justinribeiro/lite-youtube';
+</script>
